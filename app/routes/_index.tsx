@@ -26,6 +26,24 @@ export function HowManySurveys() {
   )
 }
 
+function ListSurveys() {
+  const data = useLoaderData<typeof loader>();
+  return(
+    <ul>
+      {data.toReversed().map((survey) => (
+          <li key={survey.id}>
+            <Link to={`/survey/${survey.id}`}>
+              {survey.name}
+            </Link>
+          </li>
+      ))}
+    </ul>
+  )
+}
+
+
+
+
 
 export default function Index() {
   return (
